@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ravindu Kawshalya — Portfolio</title>
+  <meta name="description" content="Simple personal portfolio template" />
+  <!--
+    Single-file portfolio template
+    - Edit the <title>, hero text, About, Projects and Contact sections below
+    - Replace placeholder images and project links
+    - Save as index.html and open in a browser to preview
+  -->
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
+      --maxw:1100px; --radius:14px; --gap:20px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Arial; background:linear-gradient(180deg,#071029 0%, #081226 100%); color:#e6eef6}
+    .container{max-width:var(--maxw);margin:36px auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:10px;background:var(--glass);display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px}
+    nav a:hover{color:var(--accent)}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;margin-top:34px;align-items:center}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));padding:22px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    .intro h1{font-size:36px;margin:0 0 8px 0}
+    .intro p{color:var(--muted);margin:0 0 16px}
+    .cta{display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#7c3aed);border:none;color:#042027}
+    .profile{display:flex;flex-direction:column;gap:12px;align-items:center}
+    .avatar{width:100%;height:300px;border-radius:12px;background:linear-gradient(135deg,#09202d,#0a1220);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--muted)}
+    section{margin-top:26px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01))}
+    .project h3{margin:0 0 8px}
+    footer{margin-top:36px;color:var(--muted);text-align:center;padding:18px}
+    /* responsive */
+    @media (max-width:920px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:repeat(2,1fr)}.avatar{height:240px}}
+    @media (max-width:560px){.grid{grid-template-columns:1fr}.nav{display:none}.container{padding:18px}.intro h1{font-size:28px}}
+    /* small utils */
+    .muted{color:var(--muted)}
+    a.card-link{display:inline-block;margin-top:10px;text-decoration:none;color:var(--accent)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">RN</div>
+        <div>
+          <div style="font-weight:700">Ravindu Kawshalya</div>
+          <div class="muted" style="font-size:13px">Software Engineering Undergraduate</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="card intro">
+        <h1>Hello — I'm Ravindu Kawshalya</h1>
+        <p>I'm a software engineer who builds modern web apps and tools. I love clean UI, readable code and small delightful interactions.</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">See my work</a>
+          <a class="btn" href="#contact">Contact me</a>
+        </div>
+
+        <section id="about">
+          <h2>About</h2>
+          <p class="muted">I am a 2nd-year Software Engineering undergraduate at NIBM with experience in Java-based full-stack development, web technologies, databases, and mobile apps. I enjoy building practical applications, working in teams, and learning new technologies to solve real-world problems.</p>
+          <ul class="muted">
+            <li>Languages & Frameworks: Java, Kotlin, PHP, Spring Boot, C#, C++, JavaScript</li>
+            <li>Databases & Tools: MySQL, Oracle, MongoDB, Firebase, Eclipse, Android Studio</li>
+            <li>Other: Arduino projects, Git/GitHub, JasperReports</li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="card profile">
+        <div class="avatar">Replace with your photo</div>
+        <div style="width:100%">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700">Open to work</div>
+              <div class="muted" style="font-size:13px">Full-time · Freelance</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:700">Contact</div>
+              <div class="muted" style="font-size:13px">rkawshalya12@gmail.com</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="projects" class="card">
+      <h2>Projects</h2>
+      <p class="muted">A few highlights — add screenshots and links to live demos or repos.</p>
+      <div class="grid" style="margin-top:14px">
+        <div class="project">
+          <h3>Restaurant Management</h3>
+          <p class="muted">Desktop application to manage restaurant operations — orders, member registration and bill reports. Technologies: Java (Swing), JDBC, MySQL. <br><a class="card-link" href="https://github.com/RavinduKawshalya/Restaurant_Management">Repo →</a></p>
+        </div>
+        <div class="project">
+          <h3>MedClickApp (Team)</h3>
+          <p class="muted">Mobile app for emergency health services (doctor channeling, ambulance requests). Built with Java/Kotlin and Firebase. <br><a class="card-link" href="https://github.com/Maleesha87/MedClickApp">Repo →</a></p>
+        </div>
+        <div class="project">
+          <h3>Shop Ordering System</h3>
+          <p class="muted">E-commerce web app for searching, cart and product management. Technologies: HTML, CSS, JavaScript, PHP, MySQL. <br><a class="card-link" href="https://github.com/RavinduKawshalya/Agriculture-Lubricants_Ordering_System">Repo →</a></p>
+        </div>
+        <div class="project">
+          <h3>My Utility App</h3>
+          <p class="muted">Team mobile app providing daily utilities like bill payments and reminders. Technologies: Java/Kotlin, Firebase. <br><a class="card-link" href="https://github.com/SanduniBhagya/MyUtility-Mobile-Application">Repo →</a></p>
+        </div>
+      </div>
+        <div class="project">
+          <h3>Arduino Robot</h3>
+          <p class="muted">Facial detection + QR scanning two-step robot controlling servo motor and email alerts.</p>
+          <a class="card-link" href="#">View repo →</a>
+        </div>
+        <div class="project">
+          <h3>Shop Website</h3>
+          <p class="muted">E-commerce style website using PHP, JS, MySQL and custom CSS.</p>
+          <a class="card-link" href="#">View demo →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p class="muted">Want to work together? Send a message or email me directly.</p>
+      <form onsubmit="event.preventDefault(); alert('Replace this with your contact handling (email, form backend, or mailto).')">
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <input style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" placeholder="Your name" required>
+          <input style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" placeholder="Email" required>
+        </div>
+        <textarea style="width:100%;margin-top:10px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" rows="4" placeholder="Message"></textarea>
+        <div style="margin-top:10px"><button class="btn primary">Send message</button></div>
+      </form>
+    </section>
+
+    <footer>
+      <div>© {YEAR} Ravindu Kawshalya — Built with ❤️ • <a href="#" style="color:var(--accent)">GitHub</a></div>
+    </footer>
+  </div>
+
+  <script>
+    // small runtime tweaks
+    document.querySelector('footer div').innerHTML = document.querySelector('footer div').innerHTML.replace('{YEAR}', new Date().getFullYear());
+    // smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=> a.addEventListener('click', e=>{e.preventDefault(); const t=document.querySelector(a.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth'});}));
+  </script>
+</body>
+</html>
