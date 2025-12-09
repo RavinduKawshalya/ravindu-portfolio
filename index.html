@@ -3,211 +3,1097 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ravindu Kawshalya — Portfolio</title>
+  <title>Ravindu Kawshalya — Software Engineer</title>
   <meta name="description" content="Software Engineering Undergraduate Portfolio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
-      --maxw:1100px; --radius:14px; --gap:20px;
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #7c3aed;
+      --accent: #06b6d4;
+      --dark-bg: #0f172a;
+      --card-bg: #1e293b;
+      --light-text: #f8fafc;
+      --muted-text: #94a3b8;
+      --border: #334155;
+      --success: #10b981;
+      --max-width: 1200px;
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Arial; background:linear-gradient(180deg,#071029 0%, #081226 100%); color:#e6eef6}
-    .container{max-width:var(--maxw);margin:36px auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:52px;height:52px;border-radius:10px;background:var(--glass);display:flex;align-items:center;justify-content:center;font-weight:700}
-    nav a{color:var(--muted);text-decoration:none;margin-left:16px}
-    nav a:hover{color:var(--accent)}
-    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;margin-top:34px;align-items:center}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));padding:22px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
-    .intro h1{font-size:36px;margin:0 0 8px 0}
-    .intro p{color:var(--muted);margin:0 0 16px}
-    .cta{display:flex;gap:12px}
-    .btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer}
-    .btn.primary{background:linear-gradient(90deg,var(--accent),#7c3aed);border:none;color:#042027}
-    .profile{display:flex;flex-direction:column;gap:12px;align-items:center}
-    .avatar{width:100%;height:300px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#09202d,#0a1220)}
-    section{margin-top:26px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01))}
-    .project h3{margin:0 0 8px}
-    footer{margin-top:36px;color:var(--muted);text-align:center;padding:18px}
-    /* responsive */
-    @media (max-width:920px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:repeat(2,1fr)}.avatar{height:240px}}
-    @media (max-width:560px){.grid{grid-template-columns:1fr}.nav{display:none}.container{padding:18px}.intro h1{font-size:28px}}
-    /* small utils */
-    .muted{color:var(--muted)}
-    a.card-link{display:inline-block;margin-top:10px;text-decoration:none;color:var(--accent)}
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark-bg);
+      color: var(--light-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 20px 0;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 18px;
+    }
+    
+    .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--light-text);
+    }
+    
+    .logo-text span {
+      color: var(--accent);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted-text);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 8px 0;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--light-text);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--light-text);
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.15), transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(124, 58, 237, 0.1), transparent 50%);
+      z-index: -1;
+    }
+    
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    
+    .hero-text h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #fff, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .hero-text .highlight {
+      color: var(--accent);
+    }
+    
+    .hero-text p {
+      font-size: 1.2rem;
+      color: var(--muted-text);
+      margin-bottom: 32px;
+      max-width: 90%;
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-size: 16px;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--light-text);
+      border: 1px solid var(--border);
+    }
+    
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      background: rgba(37, 99, 235, 0.1);
+    }
+    
+    .hero-image {
+      position: relative;
+    }
+    
+    .profile-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border);
+    }
+    
+    .profile-img {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted-text);
+    }
+    
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(16, 185, 129, 0.15);
+      border-radius: 50px;
+      color: var(--success);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .status-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+    
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      color: var(--light-text);
+    }
+    
+    .section-title p {
+      color: var(--muted-text);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    
+    .skill-category {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      border: 1px solid var(--border);
+    }
+    
+    .skill-category h3 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      color: var(--light-text);
+    }
+    
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    .skill-tag {
+      padding: 8px 16px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 6px;
+      color: var(--light-text);
+      font-size: 14px;
+      border: 1px solid rgba(37, 99, 235, 0.3);
+    }
+    
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .project-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .project-img {
+      height: 200px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted-text);
+    }
+    
+    .project-content {
+      padding: 24px;
+    }
+    
+    .project-content h3 {
+      margin-bottom: 12px;
+      color: var(--light-text);
+    }
+    
+    .project-content p {
+      color: var(--muted-text);
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+    
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .tech-tag {
+      padding: 4px 10px;
+      background: rgba(6, 182, 212, 0.1);
+      border-radius: 4px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+    
+    .project-link:hover {
+      color: var(--primary);
+    }
+    
+    /* Contact */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 20px;
+    }
+    
+    .contact-form {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 40px;
+      border: 1px solid var(--border);
+    }
+    
+    .form-group {
+      margin-bottom: 24px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--light-text);
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--light-text);
+      font-family: 'Inter', sans-serif;
+      transition: var(--transition);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 60px 0 30px;
+      border-top: 1px solid var(--border);
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: var(--card-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-text);
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+    }
+    
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      color: var(--muted-text);
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .hero-text p {
+        max-width: 100%;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .hero {
+        padding: 140px 0 80px;
+      }
+      
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-btns {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+      
+      section {
+        padding: 80px 0;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">RK</div>
-        <div>
-          <div style="font-weight:700">Ravindu Kawshalya</div>
-          <div class="muted" style="font-size:13px">Software Engineering Undergraduate</div>
-        </div>
-      </div>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
-
-    <div class="hero">
-      <div class="card intro">
-        <h1>Hello — I'm Ravindu Kawshalya</h1>
-        <p>I'm a software engineer who builds modern web apps and tools. I love clean UI, readable code and small delightful interactions.</p>
-        <div class="cta">
-          <a class="btn primary" href="#projects">See my work</a>
-          <a class="btn" href="#contact">Contact me</a>
-        </div>
-
-        <section id="about">
-          <h2>About</h2>
-          <p class="muted">I am a 2nd-year Software Engineering undergraduate at NIBM with experience in Java-based full-stack development, web technologies, databases, and mobile apps. I enjoy building practical applications, working in teams, and learning new technologies to solve real-world problems.</p>
-          
-          <div style="margin: 20px 0;">
-            <a href="CV-Ravindu.pdf" download class="btn primary" 
-               style="text-decoration:none; display:inline-block">
-              📄 Download My CV
-            </a>
-          </div>
-          
-          <ul class="muted">
-            <li>Languages & Frameworks: Java, Kotlin, PHP, Spring Boot, C#, C++, JavaScript</li>
-            <li>Databases & Tools: MySQL, Oracle, MongoDB, Firebase, Eclipse, Android Studio</li>
-            <li>Other: Arduino projects, Git/GitHub, JasperReports</li>
-          </ul>
-        </section>
-      </div>
-
-      <aside class="card profile">
-        <div class="avatar">
-          <!-- If photo doesn't load, show placeholder -->
-          <img src="ravindu.jpg" alt="Ravindu Kawshalya" 
-               style="width:100%;height:100%;object-fit:cover"
-               onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px\'>Upload ravindu.jpg</div>'">
-        </div>
-        <div style="width:100%">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <div style="font-weight:700">Open to work</div>
-              <div class="muted" style="font-size:13px">Full-time · Freelance</div>
-            </div>
-            <div style="text-align:right">
-              <div style="font-weight:700">Contact</div>
-              <div class="muted" style="font-size:13px">rkawshalya12@gmail.com</div>
-            </div>
-          </div>
-          
-          <div style="margin-top: 15px; text-align: center;">
-            <a href="CV-Ravindu.pdf" download 
-               class="btn" 
-               style="width:100%; text-decoration:none; display:block">
-              📥 Download CV
-            </a>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <section id="projects" class="card">
-      <h2>Projects</h2>
-      <p class="muted">A few highlights — add screenshots and links to live demos or repos.</p>
-      <div class="grid" style="margin-top:14px">
-        <div class="project">
-          <h3>Restaurant Management</h3>
-          <p class="muted">Desktop application to manage restaurant operations — orders, member registration and bill reports. Technologies: Java (Swing), JDBC, MySQL. <br><a class="card-link" href="https://github.com/RavinduKawshalya/Restaurant_Management">Repo →</a></p>
-        </div>
-        <div class="project">
-          <h3>MedClickApp (Team)</h3>
-          <p class="muted">Mobile app for emergency health services (doctor channeling, ambulance requests). Built with Java/Kotlin and Firebase. <br><a class="card-link" href="https://github.com/Maleesha87/MedClickApp">Repo →</a></p>
-        </div>
-        <div class="project">
-          <h3>Shop Ordering System</h3>
-          <p class="muted">E-commerce web app for searching, cart and product management. Technologies: HTML, CSS, JavaScript, PHP, MySQL. <br><a class="card-link" href="https://github.com/RavinduKawshalya/Agriculture-Lubricants_Ordering_System">Repo →</a></p>
-        </div>
-        <div class="project">
-          <h3>My Utility App</h3>
-          <p class="muted">Team mobile app providing daily utilities like bill payments and reminders. Technologies: Java/Kotlin, Firebase. <br><a class="card-link" href="https://github.com/SanduniBhagya/MyUtility-Mobile-Application">Repo →</a></p>
-        </div>
-        <div class="project">
-          <h3>Arduino Robot</h3>
-          <p class="muted">Facial detection + QR scanning two-step robot controlling servo motor and email alerts.</p>
-          <a class="card-link" href="https://github.com/RavinduKawshalya/Arduino-Robot-Project">View repo →</a>
-        </div>
-        <div class="project">
-          <h3>Shop Website</h3>
-          <p class="muted">E-commerce style website using PHP, JS, MySQL and custom CSS.</p>
-          <a class="card-link" href="https://ravindukawshalya.github.io/Shop-Website/">View demo →</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p class="muted">Want to work together? Send a message or email me directly.</p>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">RK</div>
+        <div class="logo-text">Ravindu<span>.</span></div>
+      </a>
       
-      <form action="https://formspree.io/f/xkgdqwnw" method="POST">
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <input type="text" name="name" 
-                 style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" 
-                 placeholder="Your name" required>
-          <input type="email" name="_replyto" 
-                 style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" 
-                 placeholder="Email" required>
-        </div>
-        <textarea name="message" 
-                  style="width:100%;margin-top:10px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" 
-                  rows="4" placeholder="Message" required></textarea>
-        <div style="margin-top:10px">
-          <button type="submit" class="btn primary">Send message</button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        ☰
+      </button>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Software Engineer &<br><span class="highlight">Full-Stack Developer</span></h1>
+          <p>I'm a passionate software engineering undergraduate specializing in building modern web and mobile applications. I transform complex problems into elegant, efficient solutions.</p>
+          <div class="hero-btns">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          </div>
         </div>
         
-        <!-- Formspree hidden fields -->
-        <input type="hidden" name="_subject" value="New message from your portfolio">
-        <input type="text" name="_gotcha" style="display:none">
-      </form>
+        <div class="hero-image">
+          <div class="profile-card">
+            <div class="profile-img">
+              <img src="ravindu.jpg" alt="Ravindu Kawshalya" 
+                   onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div style=\"display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--muted-text)\"><div style=\"font-size:24px\">👨‍💻</div><div>Add your photo</div><div style=\"font-size:12px\">ravindu.jpg</div></div>'">
+            </div>
+            <div class="status-badge">Open to opportunities</div>
+            <div style="margin-top: 20px;">
+              <h3 style="margin-bottom: 8px;">Ravindu Kawshalya</h3>
+              <p style="color: var(--muted-text); font-size: 14px;">Software Engineering Undergraduate @ NIBM</p>
+              <p style="color: var(--accent); font-size: 14px; margin-top: 4px;">rkawshalya12@gmail.com</p>
+              
+              <div style="margin-top: 20px;">
+                <a href="CV-Ravindu.pdf" download class="btn btn-secondary" style="width: 100%;">
+                  📄 Download CV
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>Get to know more about my background, skills, and what I do</p>
+      </div>
       
-      <!-- Direct email link as backup -->
-      <div style="margin-top: 20px; text-align: center;">
-        <p class="muted">Or email me directly:</p>
-        <a href="mailto:rkawshalya12@gmail.com" class="btn" 
-           style="text-decoration: none; display: inline-block;">
-          ✉️ rkawshalya12@gmail.com
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div style="background: var(--card-bg); border-radius: var(--border-radius); padding: 40px; border: 1px solid var(--border);">
+          <p style="font-size: 18px; margin-bottom: 24px; line-height: 1.8;">
+            I'm a 2nd-year Software Engineering undergraduate at NIBM with hands-on experience in full-stack development, mobile applications, and database systems. I enjoy building practical solutions to real-world problems and continuously learning new technologies.
+          </p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
+            <div>
+              <h3 style="color: var(--accent); margin-bottom: 12px;">Education</h3>
+              <p style="color: var(--light-text); font-weight: 600;">NIBM</p>
+              <p style="color: var(--muted-text); font-size: 14px;">BSc (Hons) in Software Engineering</p>
+              <p style="color: var(--muted-text); font-size: 14px;">2023 - Present</p>
+            </div>
+            
+            <div>
+              <h3 style="color: var(--accent); margin-bottom: 12px;">Experience</h3>
+              <p style="color: var(--light-text); font-weight: 600;">Full-Stack Developer</p>
+              <p style="color: var(--muted-text); font-size: 14px;">Multiple academic & personal projects</p>
+              <p style="color: var(--muted-text); font-size: 14px;">Java, PHP, JS, Mobile Apps</p>
+            </div>
+            
+            <div>
+              <h3 style="color: var(--accent); margin-bottom: 12px;">Interests</h3>
+              <ul style="color: var(--muted-text); font-size: 14px; padding-left: 20px;">
+                <li>Web Development</li>
+                <li>Mobile Applications</li>
+                <li>UI/UX Design</li>
+                <li>IoT & Arduino</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" style="background: rgba(0, 0, 0, 0.2);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Technical Skills</h2>
+        <p>Technologies and tools I work with</p>
+      </div>
+      
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>💻 Languages</h3>
+          <div class="skill-items">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3>🛠️ Frameworks & Tools</h3>
+          <div class="skill-items">
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">Android Studio</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Git/GitHub</span>
+            <span class="skill-tag">JasperReports</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3>🌐 Web Development</h3>
+          <div class="skill-items">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">PHP Backend</span>
+            <span class="skill-tag">REST APIs</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3>🔧 Other Skills</h3>
+          <div class="skill-items">
+            <span class="skill-tag">Arduino</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Team Collaboration</span>
+            <span class="skill-tag">Project Management</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">
+        <h2>Featured Projects</h2>
+        <p>A selection of my recent work</p>
+      </div>
+      
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-img">
+            <div style="text-align: center; padding: 20px;">
+              <div style="font-size: 48px;">🍽️</div>
+              <div>Restaurant Management System</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Restaurant Management</h3>
+            <p>Desktop application to manage restaurant operations including orders, member registration, and billing reports with JasperReports integration.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Java Swing</span>
+              <span class="tech-tag">JDBC</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">JasperReports</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/RavinduKawshalya/Restaurant_Management" class="project-link" target="_blank">
+                <span>View Code</span> →
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-img">
+            <div style="text-align: center; padding: 20px;">
+              <div style="font-size: 48px;">🏥</div>
+              <div>MedClickApp</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>MedClickApp (Team Project)</h3>
+            <p>Mobile application for emergency health services including doctor channeling, ambulance requests, and medical assistance.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Kotlin</span>
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Android</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Maleesha87/MedClickApp" class="project-link" target="_blank">
+                <span>View Code</span> →
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-img">
+            <div style="text-align: center; padding: 20px;">
+              <div style="font-size: 48px;">🛒</div>
+              <div>Shop Ordering System</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>E-commerce Ordering System</h3>
+            <p>Full-featured e-commerce web application with product catalog, shopping cart, and order management system.</p>
+            <div class="project-tech">
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/RavinduKawshalya/Agriculture-Lubricants_Ordering_System" class="project-link" target="_blank">
+                <span>View Code</span> →
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-img">
+            <div style="text-align: center; padding: 20px;">
+              <div style="font-size: 48px;">🤖</div>
+              <div>Arduino Robot</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Arduino Smart Robot</h3>
+            <p>Facial detection and QR scanning robot with two-step authentication, servo motor control, and email alert system.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Arduino</span>
+              <span class="tech-tag">C++</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">IoT</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/RavinduKawshalya/Arduino-Robot-Project" class="project-link" target="_blank">
+                <span>View Code</span> →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="https://github.com/RavinduKawshalya" class="btn btn-primary" target="_blank">
+          View All Projects on GitHub
         </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <div>© {YEAR} Ravindu Kawshalya — Built with ❤️ • 
-        <a href="https://github.com/RavinduKawshalya" 
-           style="color:var(--accent)" 
-           target="_blank">GitHub</a>
+  <!-- Contact Section -->
+  <section id="contact" style="background: rgba(0, 0, 0, 0.2);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Get In Touch</h2>
+        <p>Have a project in mind? Let's work together</p>
       </div>
-    </footer>
-  </div>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <h3>Email</h3>
+              <p style="color: var(--muted-text);">rkawshalya12@gmail.com</p>
+              <a href="mailto:rkawshalya12@gmail.com" style="color: var(--accent); font-size: 14px;">Send an email</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">💼</div>
+            <div>
+              <h3>Employment</h3>
+              <p style="color: var(--muted-text);">Open to full-time positions, internships, and freelance projects</p>
+              <div class="status-badge" style="display: inline-flex; margin-top: 8px;">Available for work</div>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h3>Location</h3>
+              <p style="color: var(--muted-text);">Based in Sri Lanka</p>
+              <p style="color: var(--muted-text); font-size: 14px;">Remote work available</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">📄</div>
+            <div>
+              <h3>Resume</h3>
+              <p style="color: var(--muted-text);">Download my CV for more details</p>
+              <a href="CV-Ravindu.pdf" download class="btn btn-secondary" style="margin-top: 10px; padding: 10px 20px;">
+                Download CV
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form action="https://formspree.io/f/xkgdqwnw" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="_replyto" class="form-control" placeholder="john@example.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="_subject" class="form-control" placeholder="Project Inquiry" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" class="form-control" placeholder="Hello Ravindu, I'd like to discuss..." required></textarea>
+            </div>
+            
+            <!-- Formspree hidden fields -->
+            <input type="hidden" name="_subject" value="New message from portfolio">
+            <input type="text" name="_gotcha" style="display:none">
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <a href="#" class="logo">
+            <div class="logo-icon">RK</div>
+            <div class="logo-text">Ravindu<span>Kawshalya</span></div>
+          </a>
+          <p style="color: var(--muted-text); margin-top: 12px;">Software Engineering Undergraduate</p>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://github.com/RavinduKawshalya" class="social-link" target="_blank" title="GitHub">
+            <span>GitHub</span>
+          </a>
+          <a href="mailto:rkawshalya12@gmail.com" class="social-link" title="Email">
+            <span>Email</span>
+          </a>
+          <a href="CV-Ravindu.pdf" download class="social-link" title="Download CV">
+            <span>CV</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>© <span id="currentYear"></span> Ravindu Kawshalya. All rights reserved.</p>
+        <p style="font-size: 14px; margin-top: 8px;">Built with ❤️ using HTML, CSS & JavaScript</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    document.querySelector('footer div').innerHTML = document.querySelector('footer div').innerHTML.replace('{YEAR}', new Date().getFullYear());
-    document.querySelectorAll('a[href^="#"]').forEach(a=> a.addEventListener('click', e=>{e.preventDefault(); const t=document.querySelector(a.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth'});}));
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
     
-    // Check if image loaded
-    const profileImg = document.querySelector('.avatar img');
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.background = 'var(--dark-bg)';
+        navLinks.style.padding = '20px';
+        navLinks.style.borderTop = '1px solid var(--border)';
+        navLinks.style.gap = '20px';
+      }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          if (window.innerWidth <= 768) {
+            navLinks.style.display = 'none';
+          }
+        }
+      });
+    });
+    
+    // Nav link active state
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 100)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+    
+    // Handle profile image error
+    const profileImg = document.querySelector('.profile-img img');
     if (profileImg) {
-      profileImg.onerror = function() {
+      profileImg.addEventListener('error', function() {
         this.style.display = 'none';
-        const avatarDiv = this.parentElement;
-        avatarDiv.innerHTML = '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px;background:linear-gradient(135deg,#09202d,#0a1220);border-radius:12px">Upload ravindu.jpg to GitHub</div>';
-        avatarDiv.style.cursor = 'pointer';
-        avatarDiv.onclick = function() {
-          window.open('https://github.com/RavinduKawshalya/ravindu-portfolio/upload/main', '_blank');
-        };
-      };
+        const imgContainer = this.parentElement;
+        imgContainer.innerHTML = `
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted-text);padding:20px;text-align:center;">
+            <div style="font-size:48px;">👨‍💻</div>
+            <div>Add your professional photo</div>
+            <div style="font-size:12px;color:var(--accent);">Save as 'ravindu.jpg' in same folder</div>
+          </div>
+        `;
+      });
     }
   </script>
 </body>
