@@ -4,13 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ravindu Kawshalya — Portfolio</title>
-  <meta name="description" content="Simple personal portfolio template" />
-  <!--
-    Single-file portfolio template
-    - Edit the <title>, hero text, About, Projects and Contact sections below
-    - Replace placeholder images and project links
-    - Save as index.html and open in a browser to preview
-  -->
+  <meta name="description" content="Software Engineering Undergraduate Portfolio" />
   <style>
     :root{
       --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
@@ -32,7 +26,7 @@
     .btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer}
     .btn.primary{background:linear-gradient(90deg,var(--accent),#7c3aed);border:none;color:#042027}
     .profile{display:flex;flex-direction:column;gap:12px;align-items:center}
-    .avatar{width:100%;height:300px;border-radius:12px;background:linear-gradient(135deg,#09202d,#0a1220);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--muted)}
+    .avatar{width:100%;height:300px;border-radius:12px;overflow:hidden}
     section{margin-top:26px}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01))}
@@ -50,7 +44,7 @@
   <div class="container">
     <header>
       <div class="brand">
-        <div class="logo">RN</div>
+        <div class="logo">RK</div>
         <div>
           <div style="font-weight:700">Ravindu Kawshalya</div>
           <div class="muted" style="font-size:13px">Software Engineering Undergraduate</div>
@@ -75,6 +69,14 @@
         <section id="about">
           <h2>About</h2>
           <p class="muted">I am a 2nd-year Software Engineering undergraduate at NIBM with experience in Java-based full-stack development, web technologies, databases, and mobile apps. I enjoy building practical applications, working in teams, and learning new technologies to solve real-world problems.</p>
+          
+          <div style="margin: 20px 0;">
+            <a href="files/CV-Ravindu.pdf" download class="btn primary" 
+               style="text-decoration:none; display:inline-block">
+              📄 Download My CV
+            </a>
+          </div>
+          
           <ul class="muted">
             <li>Languages & Frameworks: Java, Kotlin, PHP, Spring Boot, C#, C++, JavaScript</li>
             <li>Databases & Tools: MySQL, Oracle, MongoDB, Firebase, Eclipse, Android Studio</li>
@@ -84,7 +86,10 @@
       </div>
 
       <aside class="card profile">
-        <div class="avatar">ravindu.jpg</div>
+        <div class="avatar">
+          <img src="images/ravindu.jpg" alt="Ravindu Kawshalya" 
+               style="width:100%;height:100%;object-fit:cover">
+        </div>
         <div style="width:100%">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <div>
@@ -95,6 +100,14 @@
               <div style="font-weight:700">Contact</div>
               <div class="muted" style="font-size:13px">rkawshalya12@gmail.com</div>
             </div>
+          </div>
+          
+          <div style="margin-top: 15px; text-align: center;">
+            <a href="files/CV-Ravindu.pdf" download 
+               class="btn" 
+               style="width:100%; text-decoration:none; display:block">
+              📥 Download CV
+            </a>
           </div>
         </div>
       </aside>
@@ -120,16 +133,15 @@
           <h3>My Utility App</h3>
           <p class="muted">Team mobile app providing daily utilities like bill payments and reminders. Technologies: Java/Kotlin, Firebase. <br><a class="card-link" href="https://github.com/SanduniBhagya/MyUtility-Mobile-Application">Repo →</a></p>
         </div>
-      </div>
         <div class="project">
           <h3>Arduino Robot</h3>
           <p class="muted">Facial detection + QR scanning two-step robot controlling servo motor and email alerts.</p>
-          <a class="card-link" href="#">View repo →</a>
+          <a class="card-link" href="https://github.com/RavinduKawshalya/Arduino-Robot-Project">View repo →</a>
         </div>
         <div class="project">
           <h3>Shop Website</h3>
           <p class="muted">E-commerce style website using PHP, JS, MySQL and custom CSS.</p>
-          <a class="card-link" href="#">View demo →</a>
+          <a class="card-link" href="https://ravindukawshalya.github.io/Shop-Website/">View demo →</a>
         </div>
       </div>
     </section>
@@ -137,25 +149,49 @@
     <section id="contact" class="card">
       <h2>Contact</h2>
       <p class="muted">Want to work together? Send a message or email me directly.</p>
-      <form onsubmit="event.preventDefault(); alert('Replace this with your contact handling (email, form backend, or mailto).')">
+      
+      <form action="https://formspree.io/f/xkgdqwnw" method="POST">
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <input style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" placeholder="Your name" required>
-          <input style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" placeholder="Email" required>
+          <input type="text" name="name" 
+                 style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" 
+                 placeholder="Your name" required>
+          <input type="email" name="_replyto" 
+                 style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" 
+                 placeholder="Email" required>
         </div>
-        <textarea style="width:100%;margin-top:10px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" rows="4" placeholder="Message"></textarea>
-        <div style="margin-top:10px"><button class="btn primary">Send message</button></div>
+        <textarea name="message" 
+                  style="width:100%;margin-top:10px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit" 
+                  rows="4" placeholder="Message" required></textarea>
+        <div style="margin-top:10px">
+          <button type="submit" class="btn primary">Send message</button>
+        </div>
+        
+        <!-- Formspree hidden fields -->
+        <input type="hidden" name="_subject" value="New message from your portfolio">
+        <input type="text" name="_gotcha" style="display:none">
       </form>
+      
+      <!-- Direct email link as backup -->
+      <div style="margin-top: 20px; text-align: center;">
+        <p class="muted">Or email me directly:</p>
+        <a href="mailto:rkawshalya12@gmail.com" class="btn" 
+           style="text-decoration: none; display: inline-block;">
+          ✉️ rkawshalya12@gmail.com
+        </a>
+      </div>
     </section>
 
     <footer>
-      <div>© {YEAR} Ravindu Kawshalya — Built with ❤️ • <a href="#" style="color:var(--accent)">GitHub</a></div>
+      <div>© {YEAR} Ravindu Kawshalya — Built with ❤️ • 
+        <a href="https://github.com/RavinduKawshalya" 
+           style="color:var(--accent)" 
+           target="_blank">GitHub</a>
+      </div>
     </footer>
   </div>
 
   <script>
-    // small runtime tweaks
     document.querySelector('footer div').innerHTML = document.querySelector('footer div').innerHTML.replace('{YEAR}', new Date().getFullYear());
-    // smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a=> a.addEventListener('click', e=>{e.preventDefault(); const t=document.querySelector(a.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth'});}));
   </script>
 </body>
