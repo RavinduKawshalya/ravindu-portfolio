@@ -26,7 +26,7 @@
     .btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer}
     .btn.primary{background:linear-gradient(90deg,var(--accent),#7c3aed);border:none;color:#042027}
     .profile{display:flex;flex-direction:column;gap:12px;align-items:center}
-    .avatar{width:100%;height:300px;border-radius:12px;overflow:hidden}
+    .avatar{width:100%;height:300px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#09202d,#0a1220)}
     section{margin-top:26px}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01))}
@@ -70,11 +70,12 @@
           <h2>About</h2>
           <p class="muted">I am a 2nd-year Software Engineering undergraduate at NIBM with experience in Java-based full-stack development, web technologies, databases, and mobile apps. I enjoy building practical applications, working in teams, and learning new technologies to solve real-world problems.</p>
           
-      <div class="avatar">
-  <img src="ravindu.jpg" alt="Ravindu Kawshalya" 
-       style="width:100%;height:100%;object-fit:cover">
-</div>
-
+          <div style="margin: 20px 0;">
+            <a href="CV-Ravindu.pdf" download class="btn primary" 
+               style="text-decoration:none; display:inline-block">
+              📄 Download My CV
+            </a>
+          </div>
           
           <ul class="muted">
             <li>Languages & Frameworks: Java, Kotlin, PHP, Spring Boot, C#, C++, JavaScript</li>
@@ -86,8 +87,10 @@
 
       <aside class="card profile">
         <div class="avatar">
-          <img src="images/ravindu.jpg" alt="Ravindu Kawshalya" 
-               style="width:100%;height:100%;object-fit:cover">
+          <!-- If photo doesn't load, show placeholder -->
+          <img src="ravindu.jpg" alt="Ravindu Kawshalya" 
+               style="width:100%;height:100%;object-fit:cover"
+               onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px\'>Upload ravindu.jpg</div>'">
         </div>
         <div style="width:100%">
           <div style="display:flex;justify-content:space-between;align-items:center">
@@ -192,6 +195,20 @@
   <script>
     document.querySelector('footer div').innerHTML = document.querySelector('footer div').innerHTML.replace('{YEAR}', new Date().getFullYear());
     document.querySelectorAll('a[href^="#"]').forEach(a=> a.addEventListener('click', e=>{e.preventDefault(); const t=document.querySelector(a.getAttribute('href')); if(t) t.scrollIntoView({behavior:'smooth'});}));
+    
+    // Check if image loaded
+    const profileImg = document.querySelector('.avatar img');
+    if (profileImg) {
+      profileImg.onerror = function() {
+        this.style.display = 'none';
+        const avatarDiv = this.parentElement;
+        avatarDiv.innerHTML = '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px;background:linear-gradient(135deg,#09202d,#0a1220);border-radius:12px">Upload ravindu.jpg to GitHub</div>';
+        avatarDiv.style.cursor = 'pointer';
+        avatarDiv.onclick = function() {
+          window.open('https://github.com/RavinduKawshalya/ravindu-portfolio/upload/main', '_blank');
+        };
+      };
+    }
   </script>
 </body>
 </html>
